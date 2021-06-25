@@ -15,7 +15,7 @@ RSpec.describe BrokerStock, type: :model do
 
     end
 
-    it 'price is not valid' do
+    it ' is not valid with incorrect price' do
       brokerstock.symbol = nil
       brokerstock.price = 0
       brokerstock.total_sold = 10
@@ -26,7 +26,7 @@ RSpec.describe BrokerStock, type: :model do
 
     end
 
-    it 'total sold is not valid' do
+    it ' is not valid with incorrect total sold' do
       brokerstock.symbol = nil
       brokerstock.price = 10.2
       brokerstock.total_sold = -1
@@ -39,4 +39,5 @@ RSpec.describe BrokerStock, type: :model do
 
     
   end
+  
 end

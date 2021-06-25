@@ -32,7 +32,7 @@ RSpec.describe Transaction, type: :model do
 
     end
 
-    it 'price is not valid' do
+    it ' is not valid with incorrect price' do
 
       transaction.symbol = 'fb'
       transaction.stock_id = 2
@@ -46,7 +46,7 @@ RSpec.describe Transaction, type: :model do
 
     end
 
-    it 'shares is not valid' do
+    it ' is not valid with incorrect shares' do
 
       transaction.symbol = 'fb'
       transaction.stock_id = 2
@@ -60,7 +60,7 @@ RSpec.describe Transaction, type: :model do
 
     end
 
-    it 'total shares is not valid' do
+    it ' is not valid with incorrect total shares' do
 
       transaction.symbol = 'fb'
       transaction.stock_id = 2

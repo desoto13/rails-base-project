@@ -18,7 +18,7 @@ RSpec.describe BuyerStock, type: :model do
 
     end
 
-    it 'current price is not valid' do
+    it ' is not valid with incorrect current price' do
       buyerstock.symbol = 'fb'
       buyerstock.curr_price = 0
       buyerstock.bought_price = 8
@@ -32,7 +32,7 @@ RSpec.describe BuyerStock, type: :model do
 
     end
 
-    it 'bought price is not valid' do
+    it ' is not valid with incorrect bought price' do
       buyerstock.symbol = 'fb'
       buyerstock.curr_price = 10.2
       buyerstock.bought_price = 0
@@ -46,7 +46,7 @@ RSpec.describe BuyerStock, type: :model do
 
     end
 
-    it 'change price is not valid ' do
+    it ' is not valid with incorrect change price' do
       buyerstock.symbol = 'fb'
       buyerstock.curr_price = 10.2
       buyerstock.bought_price = 8
@@ -60,7 +60,7 @@ RSpec.describe BuyerStock, type: :model do
 
     end
 
-    it 'gains loss is not valid' do
+    it ' is not valid with incorrect gains loss' do
       buyerstock.symbol = 'fb'
       buyerstock.curr_price = 10.2
       buyerstock.bought_price = 8
@@ -74,7 +74,7 @@ RSpec.describe BuyerStock, type: :model do
 
     end
 
-    it 'shares is not valid' do
+    it ' is not valid with incorrect shares' do
       buyerstock.symbol = 'fb'
       buyerstock.curr_price = 10.2
       buyerstock.bought_price = 8

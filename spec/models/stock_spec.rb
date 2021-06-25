@@ -14,7 +14,7 @@ RSpec.describe Stock, type: :model do
 
     end
 
-    it 'price is not valid ' do
+    it 'is not valid with incorrect price' do
       stock.price = 0
       stock.symbol = 'fb'
 
