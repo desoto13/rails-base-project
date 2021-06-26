@@ -1,0 +1,11 @@
+<% if buyer_signed_in? %>
+  <p>This is the buyer portfolio page</p>
+  <%= link_to 'Log out', destroy_buyer_session_path, method: :delete %>
+<% elsif broker_signed_in? %>
+  <p>This is the broker portfolio page</p>
+  <%= link_to 'Log out', destroy_broker_session_path, method: :delete %>
+<% elsif admin_signed_in? %>
+  <%= render 'adminCRUD' %>
+<% else %>
+  <p>This is the landing page</p>
+<% end %>

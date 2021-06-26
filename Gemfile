@@ -25,7 +25,12 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+<<<<<<< HEAD
   gem 'rspec-rails'
+=======
+  gem 'letter_opener', '~> 1.7'
+  gem 'letter_opener_web', '~> 1.4'
+>>>>>>> e64dafc4a2a0f9efca8edc9a1f4225835a106d2f
 end
 
 group :test do
