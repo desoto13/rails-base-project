@@ -1,6 +1,28 @@
 class BrokersController < ApplicationController
-  before_action :authenticate_user!
+  
+  before_action :authenticate_user!, only: [:stocklist, :update_brokerstock]
+  before_action :require_admin, only: [:show, :new, :create, :edit, :update, :destroy]
+
+  def stocklist
+    @stocklist = Stock.all
+  end
+
+  def update_brokerstock
+    @stock = Stock.find(params[:id])
+    current_user.brokerstocks.create(@stock)
+    current_user.save
+
+    redirect_to
+  end
+
+  def transactions
+    @current_user_transactions = current_user.transactions
+  end
+
   before_action :require_admin
+
+  
+
   def show
     @broker = Broker.find(params[:id])
   end

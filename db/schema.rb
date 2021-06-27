@@ -10,16 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_06_20_123404) do
-=======
 ActiveRecord::Schema.define(version: 2021_06_21_124346) do
->>>>>>> e64dafc4a2a0f9efca8edc9a1f4225835a106d2f
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
   create_table "broker_stocks", force: :cascade do |t|
     t.string "symbol"
     t.decimal "price"
@@ -66,7 +61,8 @@ ActiveRecord::Schema.define(version: 2021_06_21_124346) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["stock_id"], name: "index_transactions_on_stock_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
-=======
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -86,7 +82,6 @@ ActiveRecord::Schema.define(version: 2021_06_21_124346) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
->>>>>>> e64dafc4a2a0f9efca8edc9a1f4225835a106d2f
   end
 
 end
