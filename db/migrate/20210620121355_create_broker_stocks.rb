@@ -6,7 +6,7 @@ class CreateBrokerStocks < ActiveRecord::Migration[6.0]
       t.integer :total_sold
       t.text :info
 
-      t.references :user
+      t.references :broker
 
       t.timestamps
     end

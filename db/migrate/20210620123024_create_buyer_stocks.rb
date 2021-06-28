@@ -9,7 +9,7 @@ class CreateBuyerStocks < ActiveRecord::Migration[6.0]
       t.integer :shares
       t.text :info
       
-      t.references :user
+      t.references :buyer
 
       t.timestamps
     end

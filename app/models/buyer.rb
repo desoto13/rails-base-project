@@ -7,4 +7,8 @@ class Buyer < User
   def approved_is_true
     self.approved = true
   end
+
+
+  has_many :buyerstocks, class_name: 'BuyerStock'
+
 end

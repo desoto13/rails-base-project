@@ -1,0 +1,21 @@
+<h1>Available stock brokers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    <% @brokers.each do |broker| %>
+      <tr>
+        <td><%= broker.id %></td>
+        <td><%= broker.username %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

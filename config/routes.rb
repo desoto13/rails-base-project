@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   get '/admins/approvals' => 'admins#approval', as: 'admin_broker_approval'
 
   devise_for :brokers
+  get '/brokers/stocklist' => 'brokers#stocklist', as: 'stocklist'
+  get '/brokers/add_stock/:id' => 'brokers#add_stock', as: 'add_stock'
   resources :brokers
 
   devise_for :buyers
+  get '/buyers/brokerlist' => 'buyers#brokerlist', as: 'brokerlist'
   resources :buyers
 
   root 'home#index'

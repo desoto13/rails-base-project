@@ -16,4 +16,8 @@ class Broker < User
     BrokerMailer.new_broker_account_pending(email).deliver
     AdminMailer.new_user_waiting_for_approval(email).deliver
   end
+
+  has_many :brokerstocks, class_name: 'BrokerStock'
+
+
 end

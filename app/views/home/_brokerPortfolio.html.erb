@@ -1,0 +1,27 @@
+<h1>Broker Portfolio</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Symbol</th>
+      <th>Price</th>
+      <th>total sold</th>
+      <th>Info</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @brokerstocks.each do |stock| %>
+      <tr>
+        <td><%= stock.id %></td>
+        <td><%= stock.symbol %></td>
+        <td><%= stock.price %></td>
+        <td><%= stock.total_sold %></td>
+        <td><%= stock.info %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

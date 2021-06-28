@@ -2,6 +2,11 @@ class BuyersController < ApplicationController
   before_action :authenticate_user!, only: [:brokerlist, :brokerlist_stocks, :transactions]
   before_action :require_admin, only: [:show, :new, :create, :edit, :update, :destroy]
 
+  def index
+    @brokers = Broker.all
+  end
+
+
   def brokerlist
     @stocklist = Broker.all
   end

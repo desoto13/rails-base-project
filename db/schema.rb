@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 2021_06_21_124346) do
     t.decimal "price"
     t.integer "total_sold"
     t.text "info"
-    t.bigint "user_id"
+    t.bigint "broker_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_broker_stocks_on_user_id"
+    t.index ["broker_id"], name: "index_broker_stocks_on_broker_id"
   end
 
   create_table "buyer_stocks", force: :cascade do |t|
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2021_06_21_124346) do
     t.decimal "gains_loss"
     t.integer "shares"
     t.text "info"
-    t.bigint "user_id"
+    t.bigint "buyer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_buyer_stocks_on_user_id"
+    t.index ["buyer_id"], name: "index_buyer_stocks_on_buyer_id"
   end
 
   create_table "stocks", force: :cascade do |t|
