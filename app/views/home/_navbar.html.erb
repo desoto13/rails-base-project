@@ -1,0 +1,14 @@
+<% if buyer_signed_in? %>
+      <span>buyer <%= current_user.username %></span>
+      <%= link_to 'Brokerlist', brokerlist_path %>
+      <%= link_to 'Log out', destroy_buyer_session_path, method: :delete %>
+    <% elsif broker_signed_in? %>
+      <span>broker <%= current_user.username %></span>
+
+      <%= link_to 'Portfolio', brokers_path %>
+      <%= link_to 'Stocklist', stocklist_path %>
+      <%= link_to 'Log out', destroy_broker_session_path, method: :delete %>
+    <% elsif admin_signed_in? %>
+      <span>admin <%= current_user.username %></span>
+      <%= link_to 'Log out', destroy_admin_session_path, method: :delete %>
+<% end %>

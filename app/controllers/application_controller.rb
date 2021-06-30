@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   devise_group :user, contains: %i[admin broker buyer]
-
   before_action :configure_permitted_parameters, if: :devise_controller?
+  skip_forgery_protection
 
   def require_admin
     return unless admin_signed_in? do
