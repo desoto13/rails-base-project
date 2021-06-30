@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2021_06_21_124346) do
     t.decimal "bought_price"
     t.decimal "change_price"
     t.decimal "gains_loss"
-    t.integer "shares"
+    t.integer "shares", default: 0
     t.text "info"
     t.bigint "buyer_id"
     t.datetime "created_at", precision: 6, null: false

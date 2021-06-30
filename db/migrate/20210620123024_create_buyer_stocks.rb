@@ -6,7 +6,7 @@ class CreateBuyerStocks < ActiveRecord::Migration[6.0]
       t.decimal :bought_price
       t.decimal :change_price
       t.decimal :gains_loss
-      t.integer :shares
+      t.integer :shares, default: 0
       t.text :info
       
       t.references :buyer

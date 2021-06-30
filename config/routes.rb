@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   devise_for :buyers
   get '/buyers/brokerlist' => 'buyers#brokerlist', as: 'brokerlist'
-  get '/buyers/broker_stocklist' => '/buyers#broker_stocklist', 'broker_stocklist'
-  get '/buyers/buy_stock/:id' => 'buyers#buy_stock', 'buy_stock'
+  get '/buyers/broker_stocklist/:id' => 'buyers#broker_stocklist', as: 'broker_stocklist'
+  get '/buyers/buy_stock/:id' => 'buyers#buy_stock', as: 'buy_stock'
   resources :buyers
 
   root 'home#index'
