@@ -11,3 +11,8 @@ buyer = Buyer.create(id: 3, email:"jc2@email.com", password: "123456", type: "Bu
 stock1 = Stock.create(id: 1, symbol: "FB", price: 34.5, info: "facebook")
 stock2 = Stock.create(id: 2, symbol: "AMZ", price: 34.5, info: "Amazon")
 stock3 = Stock.create(id: 3, symbol: "MSFT", price: 34.5, info: "Microsoft")
+
+
+
+client = IEX::Api::Client.new()
+# @stock_list = client.get('/')

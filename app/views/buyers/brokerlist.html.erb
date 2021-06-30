@@ -15,6 +15,7 @@
       <tr>
         <td><%= broker.id %></td>
         <td><%= broker.username %></td>
+        <td><%= button_to "View stocks", broker_stocklist_path(broker), method: :get %>
       </tr>
     <% end %>
   </tbody>

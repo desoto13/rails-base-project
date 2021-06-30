@@ -1,0 +1,34 @@
+<h1>Buyer Portfolio</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Symbol</th>
+      <th>Current Price</th>
+      <th>Bought Price</th>
+      <th>Change Price</th>
+      <th>Gains/Loss</th>
+      <th>Shares</th>
+      <th>Info</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    <% @buyerstocks.each do |stock| %>
+      <tr>
+        <td><%= stock.id %></td>
+        <td><%= stock.symbol %></td>
+        <td><%= stock.current_price %></td>
+        <td><%= stock.bought_price %></td>
+        <td><%= stock.change_price %></td>
+        <td><%= stock.gains_loss %></td>
+        <td><%= stock.shares %></td>
+        <td><%= stock.info %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

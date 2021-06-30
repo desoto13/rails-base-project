@@ -16,6 +16,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <span>Stockify</span>
     <% if buyer_signed_in? %>
       <span>buyer <%= current_user.username %></span>
       <%= link_to 'Brokerlist', brokerlist_path %>
@@ -29,6 +30,14 @@
     <% elsif admin_signed_in? %>
       <span>admin <%= current_user.username %></span>
       <%= link_to 'Log out', destroy_admin_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Broker Sign up', new_broker_registration_path %>
+      <%= link_to 'Buyer Sign up', new_buyer_registration_path %>
+
+      <%= link_to 'Admin Sign in', new_admin_session_path %>
+      <%= link_to 'Broker Sign in', new_broker_session_path %>
+      <%= link_to 'Buyer Sign in', new_buyer_session_path %>
+      
     <% end %>
     <%= yield %>
   </body>

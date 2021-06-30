@@ -22,9 +22,14 @@ class BrokersController < ApplicationController
     @current_user_brokerstocks.total_sold = 0
     @current_user_brokerstocks.info = @stock.info
     @current_user_brokerstocks.broker_id = current_user.id
-    @current_user_brokerstocks.save
-
-    redirect_to stocklist_path
+    if @current_user_brokerstocks.save
+      @success = "Successfully added stock to portfolio"
+      redirect_to(stocklist_path, alert: @success)
+      # redirect_to stocklist_path
+    else
+      @error = "Error broker stock add, please try again"
+      redirect_to(stocklist_path, alert: @error)
+    end
   end
 
   def transactions

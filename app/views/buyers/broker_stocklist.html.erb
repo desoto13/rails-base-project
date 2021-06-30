@@ -1,4 +1,4 @@
-<h1>Broker Portfolio</h1>
+<h1>Stocks available from broker <%= @broker.name %> </h1>
 
 <table>
   <thead>
@@ -6,7 +6,6 @@
       <th>ID</th>
       <th>Symbol</th>
       <th>Price</th>
-      <th>total sold</th>
       <th>Info</th>
       <th colspan="1"></th>
     </tr>
@@ -14,14 +13,13 @@
 
   <tbody>
     
-    <% @brokerstocks.each do |stock| %>
+    <% @broker_stockslist.each do |stock| %>
       <tr>
         <td><%= stock.id %></td>
         <td><%= stock.symbol %></td>
         <td><%= stock.price %></td>
-        <td><%= stock.total_sold %></td>
         <td><%= stock.info %></td>
-        
+        <td><%= button_to "Buy", buy_stock_path(stock), method: :get %>
       </tr>
     <% end %>
   </tbody>
