@@ -12,4 +12,8 @@ class AdminsController < ApplicationController
     BrokerMailer.new_broker_account_approved(user).deliver
     redirect_to admin_broker_approval_path
   end
+
+  def transactions
+    @current_user_transactions = Transaction.all
+  end
 end

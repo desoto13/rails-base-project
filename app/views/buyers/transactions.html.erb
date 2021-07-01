@@ -1,0 +1,32 @@
+<h1> TRANSACTIONS </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Price</th>
+      <th>Total Shares</th>
+      <th>Shares</th>
+      <th>Buyer</th>
+      <th>Broker</th>
+      <th>Transaction Date/Time</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    <% @current_user_transactions.all.sort_by { |c| c["updated_at"] }.reverse.each do |transaction| %>
+      <tr>
+        <td><%= transaction.symbol %></td>
+        <td><%= transaction.price %></td>
+        <td><%= transaction.total_shares %></td>
+        <td><%= transaction.shares %></td>
+        <td><%= transaction.buyer %></td>
+        <td><%= transaction.broker %></td>
+        <td><%= transaction.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

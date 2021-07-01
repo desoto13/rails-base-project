@@ -4,7 +4,7 @@ class BrokersController < ApplicationController
   before_action :require_admin, only: [:show, :new, :create, :edit, :update, :destroy]
 
   def index
-    @brokerstocks = BrokerStock.all
+    @brokerstocks = current_user.brokerstocks.all
   end
 
   def stocklist
@@ -33,7 +33,7 @@ class BrokersController < ApplicationController
   end
 
   def transactions
-    @current_user_transactions = current_user.transactions
+    @current_user_transactions = Transaction.where(broker: current_user.username)
   end
   
 
