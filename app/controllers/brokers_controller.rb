@@ -1,6 +1,6 @@
 class BrokersController < ApplicationController
   
-  before_action :authenticate_user!, only: [:stocklist, :add_brokerstock]
+  before_action :authenticate_user!, only: [:index, :stocklist, :add_stock, :transactions]
   before_action :require_admin, only: [:show, :new, :create, :edit, :update, :destroy]
 
   def index
