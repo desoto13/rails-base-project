@@ -8,10 +8,13 @@ class BrokersController < ApplicationController
   end
 
   def stocklist
+    client = IEX::Api::Client.new()
+
     @stocklist = Stock.all
-    # @new_stocklist = stocklist.each do |stock|
-    #   stock if stock.where.not() database of brokerstock && user.id ==current_user
-    # end
+    @stocklist.each do |stock|
+      quote = client.quote(stock.symbol)
+      stock.price = quote.latest_price
+    end
   end
 
   def add_stock
@@ -25,7 +28,6 @@ class BrokersController < ApplicationController
     if @current_user_brokerstocks.save
       @success = "Successfully added stock to portfolio"
       redirect_to(stocklist_path, alert: @success)
-      # redirect_to stocklist_path
     else
       @error = "Error broker stock add, please try again"
       redirect_to(stocklist_path, alert: @error)

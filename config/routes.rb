@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   devise_for :buyers
   get '/buyers/brokerlist' => 'buyers#brokerlist', as: 'brokerlist'
   get '/buyers/broker_stocklist/:id' => 'buyers#broker_stocklist', as: 'broker_stocklist'
-  get '/buyers/buy_stock/:id' => 'buyers#buy_stock', as: 'buy_stock'
+  get '/buyers/show_stock/:id' => 'buyers#show_stock', as: 'show_stock'
+  get '/buyers/buy_one/:id' => 'buyers#buy_one', as: 'buy_one'
+  get '/buyers/buy_ten/:id' => 'buyers#buy_ten', as: 'buy_ten'
+  get '/buyers/buy_hundred/:id' => 'buyers#buy_hundred', as: 'buy_hundred'
+  get '/buyers/buy_thousand/:id' => 'buyers#buy_thousand', as: 'buy_thousand'
   get '/buyers/transactions' => 'buyers#transactions', as: 'buyer_transactions'
   resources :buyers
 
