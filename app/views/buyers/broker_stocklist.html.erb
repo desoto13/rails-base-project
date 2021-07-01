@@ -19,10 +19,10 @@
         <td><%= stock.symbol %></td>
         <td><%= stock.price %></td>
         <td><%= stock.info %></td>
-        <td><%= button_to "Buy 1 share", buy_one_path(stock), method: :get %>
-            <%= button_to "Buy 10 shares", buy_ten_path(stock), method: :get %>
-            <%= button_to "Buy 100 shares", buy_hundred_path(stock), method: :get %>
-            <%= button_to "Buy 1000 shares", buy_thousand_path(stock), method: :get %>
+        <td><%= button_to "Buy 1 share", buy_one_path(stock), method: :get, data: { confirm: "Are you sure you want to buy this boardlot?" } %>
+            <%= button_to "Buy 10 shares", buy_ten_path(stock), method: :get, data: { confirm: "Are you sure you want to buy this boardlot?" } %>
+            <%= button_to "Buy 100 shares", buy_hundred_path(stock), method: :get, data: { confirm: "Are you sure you want to buy this boardlot?" } %>
+            <%= button_to "Buy 1000 shares", buy_thousand_path(stock), method: :get, data: { confirm: "Are you sure you want to buy this boardlot?" } %>
       </tr>
     <% end %>
   </tbody>
