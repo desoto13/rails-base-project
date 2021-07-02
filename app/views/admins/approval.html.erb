@@ -6,6 +6,7 @@
         <td><%= broker.email %>
         <td><%= broker.approved %>
         <td><%= button_to "Approve", approve_path(broker), method: :get %>
+            <%= button_to "Reject", approve_path(broker), method: :delete %>
       </tr>
     <% end %>
 </table>

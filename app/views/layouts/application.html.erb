@@ -11,7 +11,9 @@
 
   </head>
   <body>
-    <%= render "home/navbar" %>
+    <% if user_signed_in? %>
+      <%= render "home/navbar" %>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> 
     <%= yield %>

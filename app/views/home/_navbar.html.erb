@@ -1,23 +1,66 @@
-<span>Stockify</span>
-    <% if buyer_signed_in? %>
-      <span>buyer <%= current_user.username %></span>
-      <%= link_to 'Brokerlist', brokerlist_path %>
-      <%= link_to 'Log out', destroy_buyer_session_path, method: :delete %>
-    <% elsif broker_signed_in? %>
-      <span>broker <%= current_user.username %></span>
+<div class="container items-center">
+  <div class="text-gray-700 transition duration-500 ease-in-out transform bg-white border rounded-lg ">
+    <div class="flex flex-col flex-wrap p-5 mx-auto md:items-center md:flex-row">
+      <a href="/" class="pr-2 lg:pr-8 lg:px-6 focus:outline-none">
+        <div class="inline-flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-900" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <h2 class="block p-2 text-xl font-medium tracking-tighter text-black transition duration-500 ease-in-out transform cursor-pointer hover:text-gray-500 lg:text-x lg:mr-8">Stockify</h2>
+        </div>
+      </a>
+      <% if buyer_signed_in? %>
+      <nav class="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto"> 
+        <ul class="items-center inline-block list-none lg:inline-flex">
+          <li>
+            <%= link_to 'Portfolio', root_path , class:"px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black" %>
+          </li>
+          <li>
+            <%= link_to 'Broker List', brokerlist_path, class:"px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black" %>
+          </li>
+          <li>
+            <%= link_to 'Transactions', buyer_transactions_path, class:"px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black" %>
+          </li>
+        </ul>
+      </nav>
+      <%= link_to 'Log out', destroy_buyer_session_path, method: :delete, class:"w-auto px-8 py-2 my-2 text-gray-700 border-gray-700 font-medium transition duration-500 ease-in-out transform bg-white rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-gray-700 hover:text-white" %>
 
-      <%= link_to 'Portfolio', brokers_path %>
-      <%= link_to 'Stocklist', stocklist_path %>
-      <%= link_to 'Log out', destroy_broker_session_path, method: :delete %>
-    <% elsif admin_signed_in? %>
-      <span>admin <%= current_user.username %></span>
-      <%= link_to 'Log out', destroy_admin_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Broker Sign up', new_broker_registration_path %>
-      <%= link_to 'Buyer Sign up', new_buyer_registration_path %>
+      <% elsif broker_signed_in? %>
+      <nav class="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto"> 
+        <ul class="items-center inline-block list-none lg:inline-flex">
+          <li>
+            <%= link_to 'Portfolio', root_path , class:"px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black" %>
+          </li>
+          <li>
+            <%= link_to 'Stock List', stocklist_path, class:"px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black" %>
+          </li>
+          <li>
+            <%= link_to 'Transactions', broker_transactions_path, class:"px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black" %>
+          </li>
+        </ul>
+      </nav>
+      <%= link_to 'Log out', destroy_broker_session_path, method: :delete, class:"w-auto px-8 py-2 my-2 text-gray-700 border-gray-700 font-medium transition duration-500 ease-in-out transform bg-white rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-gray-700 hover:text-white" %>
 
-      <%= link_to 'Admin Sign in', new_admin_session_path %>
-      <%= link_to 'Broker Sign in', new_broker_session_path %>
-      <%= link_to 'Buyer Sign in', new_buyer_session_path %>
-      
-<% end %>
+      <% elsif admin_signed_in? %>
+      <nav class="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto"> 
+        <ul class="items-center inline-block list-none lg:inline-flex">
+          <li>
+            <%= link_to 'Approval', admin_broker_approval_path , class:"px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black" %>
+          </li>
+          <li>
+            <%= link_to '+Buyer', new_buyer_path, class:"px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black" %>
+          </li>
+          <li>
+            <%= link_to '+Broker', new_broker_path, class:"px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black" %>
+          </li>
+          <li>
+            <%= link_to 'Transactions', admin_transactions_path, class:"px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black" %>
+          </li>
+        </ul>
+      </nav>
+      <%= link_to 'Log out', destroy_admin_session_path, method: :delete, class:"w-auto px-8 py-2 my-2 text-gray-700 border-gray-700 font-medium transition duration-500 ease-in-out transform bg-white rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-gray-700 hover:text-white" %>
+
+      <% end %>
+    </div>
+  </div>
+</div>
