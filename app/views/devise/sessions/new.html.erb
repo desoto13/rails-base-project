@@ -1,26 +1,13 @@
-<h2>Log in</h2>
+<% if current_page?(buyer_session_path) %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username", value:"admin" %>
-  </div>
+  <%= render "buyerform" %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+<% elsif current_page?(broker_session_path) %>
+  
+  <%= render "brokerform" %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
+<% elsif current_page?(admin_session_path) %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+  <%= render "adminform" %>
+
 <% end %>
-
-<%= render "devise/shared/links" %>

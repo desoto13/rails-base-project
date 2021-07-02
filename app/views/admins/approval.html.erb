@@ -1,13 +1,18 @@
-<h1>Registered Brokers pending approval</h1>
-
-<table>
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">NEWLY REGISTERED BROKERS</h2>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">PENDING FOR APPROVAL</h1>
+    </div>
     <% @brokers.each do |broker| %>
-      <tr>
-        <td><%= broker.email %>
-        <td><%= broker.approved %>
-        <td><%= button_to "Approve", approve_path(broker), method: :get %>
-            <%= button_to "Reject", approve_path(broker), method: :delete %>
-      </tr>
+    <div class="flex flex-wrap">
+        <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
+          <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"><%= broker.email %></h2>
+          <p class="leading-relaxed text-base mb-4"><%= broker.username %></p>
+          <%= link_to "Approve", approve_path(broker), method: :get, class:"text-green-500 inline-flex items-center hover:text-green-700" %>
+        </div>
+    </div>
     <% end %>
-</table>
+  </div>
+</section>
 
