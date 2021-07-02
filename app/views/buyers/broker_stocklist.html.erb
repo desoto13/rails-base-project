@@ -1,29 +1,56 @@
-<h1>Stocks available from broker <%= @broker.username %> </h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Symbol</th>
-      <th>Price</th>
-      <th>Info</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    
-    <% @broker_stockslist.each do |stock| %>
-      <tr>
-        <td><%= stock.id %></td>
-        <td><%= stock.symbol %></td>
-        <td><%= stock.price %></td>
-        <td><%= stock.info %></td>
-        <td><%= button_to "Buy 1 share", buy_one_path(stock), method: :get, data: { confirm: "Are you sure you want to buy this boardlot?" } %>
-            <%= button_to "Buy 10 shares", buy_ten_path(stock), method: :get, data: { confirm: "Are you sure you want to buy this boardlot?" } %>
-            <%= button_to "Buy 100 shares", buy_hundred_path(stock), method: :get, data: { confirm: "Are you sure you want to buy this boardlot?" } %>
-            <%= button_to "Buy 1000 shares", buy_thousand_path(stock), method: :get, data: { confirm: "Are you sure you want to buy this boardlot?" } %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class=" flex p-6  rounded-lg shadow-lg justify-center content-center bg-gray-100">
+        <h1 class="text-xl text-gray-900 font-semibold">Stocks available (BROKER <%= @broker.username %> )</h1>
+</div>    
+<div class="container my-12 mx-auto px-4 md:px-12">
+    <div class="flex flex-wrap -mx-1 lg:-mx-4">
+
+      <!-- Column -->
+      <% @broker_stockslist.each do |stock| %>
+      <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+        <div class="overflow-hidden rounded-lg shadow-lg">
+
+          <header class="flex items-center justify-center p-2 md:p-4">
+            <h1 class="text-lg text-black font-black">
+
+              <%= stock.symbol %>
+
+            </h1>
+          </header>
+
+          <div class="flex items-center justify-center text-green-700 text-xl p-2 md:p-4">
+              $ <%= stock.price %>
+          </div>
+
+          <div class="flex items-center justify-center text-grey-darker text-sm p-2 md:p-4">
+              <%= stock.info[0..20] %>
+          </div>
+
+          <div class="flex items-center justify-center leading-none p-2 md:p-4">
+              <p class="m-2">
+              <%= button_to "Buy 1 share", buy_one_path(stock), method: :get, class: 'bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow', data: { confirm: "Are you sure you want to buy this boardlot?" } %>
+              </p>
+              <p class="m-2">
+              <%= button_to "Buy 10 shares", buy_ten_path(stock), method: :get, class: 'bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow', data: { confirm: "Are you sure you want to buy this boardlot?" } %>
+              </p>
+          </div>
+          <div class="flex items-center justify-center leading-none p-2 md:p-4">
+              <p class="m-2">
+              <%= button_to "Buy 100 shares", buy_hundred_path(stock), method: :get, class: 'bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow', data: { confirm: "Are you sure you want to buy this boardlot?" } %>
+              </p>
+              <p class="m-2">
+              <%= button_to "Buy 1000 shares", buy_thousand_path(stock), method: :get, class: 'bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow', data: { confirm: "Are you sure you want to buy this boardlot?" } %>
+              </p>
+          </div>
+          
+
+
+        </div>
+      </div>
+      <% end %>
+      <!-- Column end-->
+      
+    </div>
+</div>
+

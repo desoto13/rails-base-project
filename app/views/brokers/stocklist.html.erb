@@ -1,26 +1,42 @@
-<h1>Stock List</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Symbol</th>
-      <th>Price</th>
-      <th>Info</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
+<div class=" flex p-6  rounded-lg shadow-lg justify-center content-center bg-gray-100">
+        <h1 class="text-xl text-gray-900 font-semibold">Stock List</h1>
+</div>    
+<div class="container my-12 mx-auto px-4 md:px-12">
+    <div class="flex flex-wrap -mx-1 lg:-mx-4">
 
-  <tbody>
-    <% #@new_stocklist.each do |stock| %>
-    <% @stocklist.each do |stock| %>
-      <tr>
-        <td><%= stock.id %></td>
-        <td><%= stock.symbol %></td>
-        <td><%= stock.price %></td>
-        <td><%= stock.info %></td>
-        <td><%= button_to "Add to Portfolio", add_stock_path(stock), method: :get %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <!-- Column -->
+      <% @stocklist.each do |stock| %>
+      <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+        <div class="overflow-hidden rounded-lg shadow-lg">
+
+          <header class="flex items-center justify-center p-2 md:p-4">
+            <h1 class="text-lg text-black font-black">
+
+              <%= stock.symbol %>
+
+            </h1>
+          </header>
+
+          <div class="flex items-center justify-center text-green-700 text-xl p-2 md:p-4">
+              $ <%= stock.price %>
+          </div>
+
+          <div class="flex items-center justify-center text-grey-darker text-sm p-2 md:p-4">
+              <%= stock.info[0..20] %>
+          </div>
+
+          <footer class="flex items-center justify-center leading-none p-2 md:p-4">
+            
+            <%= button_to "Add to Portfolio", add_stock_path(stock), method: :get, class: 'bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow' %>
+
+          </footer>
+
+
+        </div>
+      </div>
+      <% end %>
+      <!-- Column end-->
+      
+    </div>
+</div>

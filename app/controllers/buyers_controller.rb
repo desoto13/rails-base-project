@@ -147,6 +147,6 @@ class BuyersController < ApplicationController
     end
 
     @success = "Successfully bought stock to portfolio"
-    redirect_to(buyers_path(@brokerstock.broker_id), alert: @success)
+    redirect_to(buyers_path(@brokerstock.broker_id), notice: @success)
   end
 end

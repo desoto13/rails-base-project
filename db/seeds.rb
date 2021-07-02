@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 admin = Admin.create(email: "admin@email.com", password: "qwerty", type: "Admin", username: "admin" , approved: true)
+broker = Broker.create(email: "jc@email.com", password: "123123", type: "Broker", username: "jc" , approved: true)
+buyer = Buyer.create(email: "jc2@email.com", password: "123123", type: "Buyer", username: "jc2" , approved: true)
 
 client = IEX::Api::Client.new()
 

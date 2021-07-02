@@ -1,28 +1,63 @@
-<h1>Broker Portfolio</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Symbol</th>
-      <th>Price</th>
-      <th>total sold</th>
-      <th>Info</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    
-    <% @brokerstocks.each do |stock| %>
-      <tr>
-        <td><%= stock.id %></td>
-        <td><%= stock.symbol %></td>
-        <td><%= stock.price %></td>
-        <td><%= stock.total_sold %></td>
-        <td><%= stock.info %></td>
-        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+
+<div class="overflow-x-auto ">
+        <div class="min-w-screen min-h-screen bg-gray-100 flex items-start justify-center bg-gray-100 font-sans overflow-hidden">
+            <div class="w-full lg:w-5/6 ">
+            
+                <div class="bg-white shadow-md rounded my-6 bg-gray-100">
+                    <h1 class="text-center text-xl text-gray-200 font-semibold bg-gray-700 p-6">Broker Portfolio</h1>
+                    <table class="min-w-max w-full table-auto ">
+                        
+                        <thead>
+                            <tr class="text-gray-600 uppercase text-sm leading-normal rounded-lg shadow-lg">
+                                <th class="py-3 px-6 text-left">#</th>
+                                <th class="py-3 px-6 text-left">SYMBOL</th>
+                                <th class="py-3 px-6 text-center">Price</th>
+                                <th class="py-3 px-6 text-center">TOTAL SOLD</th>
+                                <th class="py-3 px-6 text-center">INFO</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600 text-sm font-light">
+                            <% @brokerstocks.each do |stock| %>
+                            <tr class="border-b border-gray-200 hover:bg-gray-300">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        
+                                        <span class="font-medium"><%= stock.id %></span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        
+                                        <span class="font-medium"><%= stock.symbol %></span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-left ">
+                                    <div class="flex items-center justify-center">
+                                        
+                                        <span class="font-medium">$ <%= stock.price %></span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center justify-center">
+                                        
+                                        <span class="font-medium"><%= stock.total_sold %></span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center justify-center">
+                                        
+                                        <span class="font-medium"><%= stock.info[0..30] %></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <% end %>
+                    </table>
+                </div>
+            </div>
+        </div>
+</div>
+

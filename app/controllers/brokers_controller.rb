@@ -27,7 +27,7 @@ class BrokersController < ApplicationController
     @current_user_brokerstocks.broker_id = current_user.id
     if @current_user_brokerstocks.save
       @success = "Successfully added stock to portfolio"
-      redirect_to(stocklist_path, alert: @success)
+      redirect_to(stocklist_path, notice: @success)
     else
       @error = "Error broker stock add, please try again"
       redirect_to(stocklist_path, alert: @error)
