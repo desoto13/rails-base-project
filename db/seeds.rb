@@ -9,11 +9,7 @@ admin = Admin.create(email: "admin@email.com", password: "qwerty", type: "Admin"
 # broker = Broker.create(email: "jc@email.com", password: "123123", type: "Broker", username: "jc" , approved: true)
 # buyer = Buyer.create(email: "jc2@email.com", password: "123123", type: "Buyer", username: "jc2" , approved: true)
 
-client = IEX::Api::Client.new(
-    publishable_token = Rails.application.credentials.IEX['IEX_API_PUBLISHABLE_TOKEN'] # defaults to ENV['IEX_API_PUBLISHABLE_TOKEN']
-    secret_token = Rails.application.credentials.IEX['IEX_API_SECRET_TOKEN'] # defaults to ENV['IEX_API_SECRET_TOKEN']
-    endpoint = Rails.application.credentials.IEX['ENDPOINT'] # use 'https://sandbox.iexapis.com/v1' for Sandbox
-)
+client = IEX::Api::Client.new()
 
 symbols = client.ref_data_symbols()
 symbols.shuffle.slice(0,20).each do |symbol|
