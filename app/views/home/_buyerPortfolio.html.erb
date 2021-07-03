@@ -1,34 +1,95 @@
-<h1>Buyer Portfolio</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Symbol</th>
-      <th>Current Price</th>
-      <th>Bought Price</th>
-      <th>Change Price</th>
-      <th>Gains/Loss</th>
-      <th>Shares</th>
-      <th>Info</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
+<div >
+        <div class="min-w-screen min-h-screen bg-gray-100 flex items-start justify-center bg-gray-100 font-sans overflow-hidden">
+            <div class="w-full lg:w-5/6 overflow-auto ">
+            
+                <div class="bg-white shadow-md rounded my-6 bg-gray-100 min-w-max overflow-auto">
+                    <h1 class="text-center text-xl text-gray-200 font-semibold bg-gray-700 p-6">BUYER PORTFOLIO</h1>
+                    <table class="min-w-max w-full table-auto ">
+                        
+                        <thead>
+                            <tr class="text-gray-600 uppercase text-sm leading-normal rounded-lg shadow-lg">
+                                
+                                <th class="py-3 px-6 text-center">#</th>
+                                <th class="py-3 px-6 text-center">STOCK SYMBOL</th>
+                                <th class="py-3 px-6 text-center">CURRENT PRICE</th>
+                                <th class="py-3 px-6 text-center">BOUGHT PRICE</th>
+                                <th class="py-3 px-6 text-center">CHANGE PRICE</th>
+                                <th class="py-3 px-6 text-center">GAINS LOSS</th>
+                                <th class="py-3 px-6 text-center">SHARES</th>
+                                <th class="py-3 px-6 text-center">INFO</th>   
 
-  <tbody>
-    
-    <% @buyerstocks.each do |stock| %>
-      <tr>
-        <td><%= stock.id %></td>
-        <td><%= stock.symbol %></td>
-        <td><%= stock.curr_price %></td>
-        <td><%= stock.bought_price %></td>
-        <td><%= stock.change_price %></td>
-        <td><%= stock.gains_loss %></td>
-        <td><%= stock.shares %></td>
-        <td><%= stock.info %></td>
-        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600 text-sm font-light">
+                            <% @buyerstocks.each do |stock| %>
+                            <tr class="border-b border-gray-200 hover:bg-gray-300">
+                               
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center justify-center">
+                                        
+                                        <span class="font-medium"><%= stock.id %></span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center justify-center">
+                                        
+                                        <span class="font-medium"><%= stock.symbol %></span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center justify-center">
+                                        
+                                        <span class="font-medium">$ <%= stock.curr_price %></span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center justify-center">
+                                        
+                                        <span class="font-medium">$ <%= stock.bought_price %></span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center justify-center">
+                                        
+                                        <span class="font-medium"><%= stock.change_price %></span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center justify-center">
+                                        <% if stock.gains_loss >= 0 then %>
+                                            <span class="font-medium text-green-600 "><%= stock.gains_loss %> %</span>
+                                        <% else %>
+                                            <span class="font-medium text-red-600"><%= stock.gains_loss %> %</span>
+                                        <% end %>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center justify-center">
+                                        
+                                        <span class="font-medium"><%= stock.shares %></span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center justify-center">
+                                        
+                                        <span class="font-medium"><%= stock.info[0..20] %></span>
+                                    </div>
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                        <% end %>
+                    </table>
+                </div>
+            </div>
+        </div>
+</div>
+

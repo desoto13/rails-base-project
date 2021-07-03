@@ -9,8 +9,9 @@ class BrokersController < ApplicationController
 
   def stocklist
     client = IEX::Api::Client.new()
-
+    brokerstocks = current_user.brokerstocks
     @stocklist = Stock.all
+    
     @stocklist.each do |stock|
       quote = client.quote(stock.symbol)
       stock.price = quote.latest_price
@@ -27,11 +28,18 @@ class BrokersController < ApplicationController
     @current_user_brokerstocks.broker_id = current_user.id
     if @current_user_brokerstocks.save
       @success = "Successfully added stock to portfolio"
-      redirect_to(stocklist_path, alert: @success)
+      redirect_to(stocklist_path, notice: @success)
     else
       @error = "Error broker stock add, please try again"
       redirect_to(stocklist_path, alert: @error)
     end
+  end
+
+  def remove_stock
+    brokerstock = BrokerStock.find(params[:id])
+    brokerstock.destroy
+    @success = "Successfully removed stock from portfolio"
+    redirect_to(stocklist_path, notice: @success)
   end
 
   def transactions
@@ -77,6 +85,8 @@ class BrokersController < ApplicationController
 
     redirect_to root_path
   end
+
+  
 
   private
 

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :brokers
   get '/brokers/stocklist' => 'brokers#stocklist', as: 'stocklist'
   get '/brokers/add_stock/:id' => 'brokers#add_stock', as: 'add_stock'
+  get '/brokers/remove_stock/:id' => 'brokers#remove_stock', as: 'remove_stock'
   get '/brokers/transactions' => 'brokers#transactions', as: 'broker_transactions'
   resources :brokers
 

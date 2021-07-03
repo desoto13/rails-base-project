@@ -3,8 +3,21 @@ class BuyersController < ApplicationController
   before_action :require_admin, only: [:show, :new, :create, :edit, :update, :destroy]
 
   def index
+
     @buyerstocks = current_user.buyerstocks.all
     @stock = Stock.all
+    client = IEX::Api::Client.new()
+    @buyerstocks.each do |buyerstock|
+      
+      quote = client.quote(buyerstock.symbol)
+      latest_price = quote.latest_price
+
+      buyerstock.curr_price = latest_price
+      buyerstock.change_price = latest_price - buyerstock.bought_price
+      buyerstock.gains_loss = ((latest_price-buyerstock.bought_price)/buyerstock.bought_price.abs)*100
+      buyerstock.gains_loss = buyerstock.gains_loss.truncate(2)
+      buyerstock.save
+    end
   end
 
   def brokerlist
@@ -147,6 +160,6 @@ class BuyersController < ApplicationController
     end
 
     @success = "Successfully bought stock to portfolio"
-    redirect_to(buyers_path(@brokerstock.broker_id), alert: @success)
+    redirect_to(buyers_path(@brokerstock.broker_id), notice: @success)
   end
 end

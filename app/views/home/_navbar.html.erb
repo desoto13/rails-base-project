@@ -1,6 +1,6 @@
-<div class="container items-center fixed top-0 z-10">
+<div class="container items-center fixed top-0 z-10 max-w-full mw:auto">
   <div class="text-gray-700 transition duration-500 ease-in-out transform bg-white border rounded-lg ">
-    <div class="flex flex-col flex-wrap p-5 mx-auto md:items-center md:flex-row">
+    <div class="flex flex-col flex-wrap p-5 mx-auto md:items-center sm:flex-row">
       <a href="/" class="pr-2 lg:pr-8 lg:px-6 focus:outline-none">
         <div class="inline-flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-900" viewBox="0 0 20 20" fill="currentColor">
@@ -10,8 +10,8 @@
         </div>
       </a>
       <% if buyer_signed_in? %>
-      <nav class="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto"> 
-        <ul class="items-center inline-block list-none lg:inline-flex">
+      <nav class="flex flex-wrap items-center justify-center text-base sm:mx-auto"> 
+        <ul class="items-center inline-block list-none sm:inline-flex">
           <li>
             <%= link_to 'Portfolio', root_path , class:"px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black" %>
           </li>
@@ -26,8 +26,8 @@
       <%= link_to 'Log out', destroy_buyer_session_path, method: :delete, class:"w-auto px-8 py-2 my-2 text-gray-700 border-gray-700 font-medium transition duration-500 ease-in-out transform bg-white rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-gray-700 hover:text-white" %>
 
       <% elsif broker_signed_in? %>
-      <nav class="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto"> 
-        <ul class="items-center inline-block list-none lg:inline-flex">
+      <nav class="flex flex-wrap items-center justify-center text-base sm:mx-auto"> 
+        <ul class="items-center inline-block list-none sm:inline-flex">
           <li>
             <%= link_to 'Portfolio', root_path , class:"px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black" %>
           </li>
@@ -42,8 +42,8 @@
       <%= link_to 'Log out', destroy_broker_session_path, method: :delete, class:"w-auto px-8 py-2 my-2 text-gray-700 border-gray-700 font-medium transition duration-500 ease-in-out transform bg-white rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-gray-700 hover:text-white" %>
 
       <% elsif admin_signed_in? %>
-      <nav class="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto"> 
-        <ul class="items-center inline-block list-none lg:inline-flex">
+      <nav class="flex flex-wrap items-center justify-center text-base sm:mx-auto"> 
+        <ul class="items-center inline-block list-none sm:inline-flex">
           <li>
             <%= link_to 'Approval', admin_broker_approval_path , class:"px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black" %>
           </li>
@@ -61,7 +61,7 @@
       <%= link_to 'Log out', destroy_admin_session_path, method: :delete, class:"w-auto px-8 py-2 my-2 text-gray-700 border-gray-700 font-medium transition duration-500 ease-in-out transform bg-white rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-gray-700 hover:text-white" %>
 
       <% else %>
-      <nav class="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto"> 
+      <nav class="flex flex-wrap items-center justify-center text-base sm:mx-auto"> 
         <ul class="items-center inline-block list-none lg:inline-flex">
           <li>
             <%= link_to 'Home', root_path , class:"px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-black" %>
@@ -74,7 +74,7 @@
           </li>
         </ul>
       </nav>
-      <%= link_to 'Sign In', new_buyer_session_path, class:"w-auto px-8 py-2 my-2 text-base font-medium text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-blue-700 cursor-pointer" %>
+      <%= link_to 'Sign In', new_buyer_session_path, class:"w-auto px-8 py-2 my-2 text-base font-medium text-white transition duration-500 ease-in-out transform border-blue-600 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-blue-50 hover:shadow-2xl text-indigo-500 cursor-pointer" %>
 
       <% end %>
     </div>

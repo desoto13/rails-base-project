@@ -1,11 +1,12 @@
 <% if buyer_signed_in? %>
 
-  <p>This is the buyer portfolio page</p>
+  
   <%= render 'buyerPortfolio' %>
 
 <% elsif broker_signed_in? %>
 
-  <p>This is the broker portfolio page</p>
+  
+  <%= render 'brokerPortfolio' %>
   
 <% elsif admin_signed_in? %>
   <%= render 'adminCRUD' %>
