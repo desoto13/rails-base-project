@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Stock app</title>
+    <title>Stockify</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   </head>
-  <body>
+  <body class="pt-24">
     <%= render "home/navbar" %>
      
     <% flash.each do |type, msg| %>

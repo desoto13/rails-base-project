@@ -1,9 +1,9 @@
 
-<div class="overflow-x-auto ">
+<div >
         <div class="min-w-screen min-h-screen bg-gray-100 flex items-start justify-center bg-gray-100 font-sans overflow-hidden">
-            <div class="w-full lg:w-5/6 ">
+            <div class="w-full lg:w-5/6 overflow-auto ">
             
-                <div class="bg-white shadow-md rounded my-6 bg-gray-100">
+                <div class="bg-white shadow-md rounded my-6 bg-gray-100 min-w-max overflow-auto">
                     <h1 class="text-center text-xl text-gray-200 font-semibold bg-gray-700 p-6">BUYER PORTFOLIO</h1>
                     <table class="min-w-max w-full table-auto ">
                         
@@ -25,7 +25,6 @@
                             <% @buyerstocks.each do |stock| %>
                             <tr class="border-b border-gray-200 hover:bg-gray-300">
                                
-                                
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center justify-center">
                                         
@@ -43,14 +42,14 @@
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center justify-center">
                                         
-                                        <span class="font-medium"><%= stock.curr_price %></span>
+                                        <span class="font-medium">$ <%= stock.curr_price %></span>
                                     </div>
                                 </td>
 
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center justify-center">
                                         
-                                        <span class="font-medium"><%= stock.bought_price %></span>
+                                        <span class="font-medium">$ <%= stock.bought_price %></span>
                                     </div>
                                 </td>
 
@@ -63,8 +62,11 @@
 
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center justify-center">
-                                        
-                                        <span class="font-medium"><%= stock.gains_loss %></span>
+                                        <% if stock.gains_loss >= 0 then %>
+                                            <span class="font-medium text-green-600 "><%= stock.gains_loss %> %</span>
+                                        <% else %>
+                                            <span class="font-medium text-red-600"><%= stock.gains_loss %> %</span>
+                                        <% end %>
                                     </div>
                                 </td>
 
@@ -78,7 +80,7 @@
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center justify-center">
                                         
-                                        <span class="font-medium"><%= stock.info %></span>
+                                        <span class="font-medium"><%= stock.info[0..20] %></span>
                                     </div>
                                 </td>
                                 
