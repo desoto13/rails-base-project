@@ -7,7 +7,7 @@
             <div class="w-full lg:w-5/6 overflow-auto">
             
                 <div class="bg-white shadow-md rounded my-6 bg-gray-100 min-w-max overflow-auto">
-                    <h1 class="text-center text-xl text-gray-200 font-semibold bg-gray-700 p-6">Broker Portfolio</h1>
+                    <h1 class="text-center text-xl text-gray-200 font-semibold bg-gray-700 p-6"><span class="font-xl"><%= current_user.username%></span> Portfolio</h1>
                     <table class="min-w-max w-full table-auto ">
                         
                         <thead>
@@ -21,7 +21,7 @@
                             </tr>
                         </thead>
                         <tbody class="text-gray-600 text-sm font-light">
-                            <% @brokerstocks.each do |stock| %>
+                            <% current_user.brokerstocks.each do |stock| %>
                             <tr class="border-b border-gray-200 hover:bg-gray-300">
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center">

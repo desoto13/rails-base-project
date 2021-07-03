@@ -2,12 +2,6 @@
 
 
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token), class:"text-white text-sm tracking-wide bg-red rounded w-full my-8 p-4" %></p>
-
-
-
-
-
 <div class="app font-sans min-w-screen min-h-screen bg-grey-lighter py-8 px-4">
   
   <div class="mail__wrapper max-w-md mx-auto">
@@ -24,7 +18,7 @@
           Welcome <%= @email %>!<br><br>
         </p>
         <p>You can confirm your account email through the link below:</p><br>
-        ><%= button_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token), class:"text-white text-sm tracking-wide bg-red rounded w-full my-8 p-4" %>
+        <%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token), class:"text-white text-sm tracking-wide bg-red rounded w-full my-8 p-4" %>
 
       </div>
 
@@ -45,7 +39,7 @@
       
       <div class="meta__help">
         <p class="leading-loose">
-          Questions or concerns? <a href="#" class="text-grey-darkest">help@stockadmin.io</a>
+          Questions or concerns? <a href="#" class="text-grey-darkest">help@stockify.io</a>
           
           <br>
           Want to quit getting updates? <a href="#" class="text-grey-darkest">Unsubscribe</a>
