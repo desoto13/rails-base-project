@@ -38,8 +38,8 @@ class BrokersController < ApplicationController
   def remove_stock
     brokerstock = BrokerStock.find(params[:id])
     brokerstock.destroy
-
-    redirect_to root_path
+    @success = "Successfully removed stock from portfolio"
+    redirect_to(stocklist_path, notice: @success)
   end
 
   def transactions

@@ -17,6 +17,7 @@
                                 <th class="py-3 px-6 text-center">Price</th>
                                 <th class="py-3 px-6 text-center">TOTAL SOLD</th>
                                 <th class="py-3 px-6 text-center">INFO</th>
+                                <th class="py-3 px-6 text-center">ACTIONS</th>
                             </tr>
                         </thead>
                         <tbody class="text-gray-600 text-sm font-light">
@@ -50,6 +51,12 @@
                                     <div class="flex items-center justify-center">
                                         
                                         <span class="font-medium"><%= stock.info[0..30] %></span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center justify-center">
+                                        
+                                        <span class="font-medium"><%= button_to "Remove", remove_stock_path(stock), method: :get, class: 'bg-gray-100 bg-opacity-0 text-gray-800 font-semibold py-3 px-14 ' %></span>
                                     </div>
                                 </td>
                             </tr>
