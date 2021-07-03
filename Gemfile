@@ -18,6 +18,7 @@ gem 'hamlit-rails'
 gem 'iex-ruby-client'
 gem 'figaro'
 gem 'whenever', require: false
+gem 'letter_opener', '~> 1.7'
 gem 'letter_opener_web', '~> 1.4'
 
 group :development, :test do
@@ -30,7 +31,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rspec-rails'
-  gem 'letter_opener', '~> 1.7'
 end
 
 group :test do
