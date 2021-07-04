@@ -116,14 +116,14 @@ class BuyersController < ApplicationController
     params.require(:buyer).permit(:email, :password, :username)
   end
 
-  def new_transaction(current_stock, broker_stock)
+  def new_transaction(current_stock, broker_stock, num_shares)
     broker_used = Broker.find_by(id: broker_stock.broker_id)
 
     trans = Transaction.new
     trans.symbol = broker_stock.symbol
     trans.price = broker_stock.price
     trans.total_shares = current_stock.shares
-    trans.shares = 100
+    trans.shares = num_shares
     trans.buyer = current_user.username
     trans.broker = broker_used.username
     trans.stock_id = current_stock.id
@@ -156,7 +156,7 @@ class BuyersController < ApplicationController
       @current_user_buyerstocks.buyer_id = current_user.id 
       @current_user_buyerstocks.save
 
-      new_transaction(@current_user_buyerstocks, @brokerstock)
+      new_transaction(@current_user_buyerstocks, @brokerstock, num_shares)
     end
 
     @success = "Successfully bought stock to portfolio"
