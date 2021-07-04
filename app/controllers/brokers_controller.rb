@@ -4,7 +4,7 @@ class BrokersController < ApplicationController
   before_action :require_admin, only: [:show, :new, :create, :edit, :update, :destroy]
 
   def index
-    @brokerstocks = current_user.brokerstocks.all
+    @brokerstocks = current_user.brokerstocks
   end
 
   def stocklist

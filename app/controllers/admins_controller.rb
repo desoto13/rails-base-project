@@ -10,7 +10,8 @@ class AdminsController < ApplicationController
     user.approved = true
     user.save
     BrokerMailer.new_broker_account_approved(user).deliver
-    redirect_to admin_broker_approval_path
+    @success = "Broker "+user.username+"'s registration approved!"
+    redirect_to admin_broker_approval_path, notice: @success
   end
 
   def transactions
