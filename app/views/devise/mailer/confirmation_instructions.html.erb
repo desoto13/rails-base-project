@@ -6,7 +6,7 @@
     <div class="mail__content bg-white p-8 shadow-md">
 
       <div class="content__header h-64 flex flex-col items-center justify-center text-center tracking-wide leading-normal bg-black -mx-8 -mt-8">
-          <h1 class="text-red text-5xl">Stock app</h1>
+          <h1 class="text-red text-5xl">Stockify</h1>
           
       </div>
 
@@ -15,13 +15,13 @@
           Welcome <%= @email %>!<br><br>
         </p>
         <p>You can confirm your account email through the link below:</p><br>
-        <%= button_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token), class:"text-white text-sm tracking-wide bg-red rounded w-full my-8 p-4" %>
+        <%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token), class:"text-white text-sm tracking-wide bg-red rounded w-full my-8 p-4" %>
 
       </div>
 
       <div class="content__footer mt-8 text-center text-grey-darker">
-        <h3 class="text-base sm:text-lg mb-4">Thanks for using The App!</h3>
-        <p>www.theapp.io</p>
+        <h3 class="text-base sm:text-lg mb-4">Thanks for using stockify!</h3>
+        <p>https://stockify-wbm-jco.herokuapp.com</p>
       </div>
 
     </div>
