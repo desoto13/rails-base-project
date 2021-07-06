@@ -18,7 +18,7 @@
                                 <th class="py-3 px-6 text-center">GAINS LOSS</th>
                                 <th class="py-3 px-6 text-center">SHARES</th>
                                 <th class="py-3 px-6 text-center">INFO</th>   
-
+                                <th class="py-3 px-6 text-center">ACTIONS</th> 
                             </tr>
                         </thead>
                         <tbody class="text-gray-600 text-sm font-light">
@@ -81,6 +81,13 @@
                                     <div class="flex items-center justify-center">
                                         
                                         <span class="font-medium"><%= stock.info[0..20] %></span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center justify-center">
+                                        
+                                        <%= button_to "Sell stock", sell_stock_path(stock), method: :get, class: 'bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow', data: { confirm: "Are you sure you want to sell this stock?" } %>
                                     </div>
                                 </td>
                                 

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/buyers/buy_hundred/:id' => 'buyers#buy_hundred', as: 'buy_hundred'
   get '/buyers/buy_thousand/:id' => 'buyers#buy_thousand', as: 'buy_thousand'
   get '/buyers/transactions' => 'buyers#transactions', as: 'buyer_transactions'
+  get '/buyers/sell_stock/:id' => 'buyers#sell_stock', as: 'sell_stock'
   resources :buyers
 
   root 'home#index'

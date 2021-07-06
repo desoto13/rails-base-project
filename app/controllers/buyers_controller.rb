@@ -107,6 +107,22 @@ class BuyersController < ApplicationController
     redirect_to root_path
   end
 
+  def sell_stock
+    @buyerstock = BuyerStock.find(params[:id])
+    @brokerstock = BrokerStock.find_by(symbol: @buyerstock.symbol)
+
+    @brokerstock.total_sold -= @buyerstock.shares
+    @brokerstock.save
+
+    stock_name = @buyerstock.symbol
+    @buyerstock.destroy
+
+    @success = "Successfully sold all "+stock_name+" stocks"
+    redirect_to(root_path, notice: @success)
+
+  end
+
+
   private
   def broker_params
     params.require(broker).permit(:id)
@@ -162,4 +178,6 @@ class BuyersController < ApplicationController
     @success = "Successfully bought stock to portfolio"
     redirect_to(buyers_path(@brokerstock.broker_id), notice: @success)
   end
+
+  
 end
